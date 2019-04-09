@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>テトリス</title>
+<style>
+    .box_9{
+        display:flex;
+        flex-wrap: wrap;
+        width:584px;
+        justify-content: flex-end;
+        margin:0 auto;
+    }
+    .box{
+        width:100px;
+        height:100px;
+        margin:2px;
+        background:#547CFF;
+    }
+    .box_after{
+        background:#5BFF87;
+    }
+    
+</style>
+<script src="jq.min.js"></script>
+
+    </head>
+    <body>
+        <div class="box_9">
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+            <div class="box">
+            </div>
+        </div>
+        <script>
+            $('.box').on('click',function(){
+                var index = $('.box').index(this);
+                console.log(index);
+                $(this).toggleClass('box_after');
+                if($('.box').index(this) > 4){
+                    var box = $('.box').index(this) - 5;
+                    $('.box').eq(box).toggleClass('box_after');//上
+                }
+                if($('.box').index(this) < 20){
+                    var box = $('.box').index(this) + 5;
+                    $('.box').eq(box).toggleClass('box_after');//下
+                }
+                if($('.box').index(this) % 5 != 4){
+                    var box = $('.box').index(this) + 1;
+                    $('.box').eq(box).toggleClass('box_after');//右
+                }
+                if($('.box').index(this) % 5 != 0){
+                    var box = $('.box').index(this) - 1;
+                    $('.box').eq(box).toggleClass('box_after');//左
+                }
+                
+            });
+        </script>
+        
+    </body>
+</html>
